@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
@@ -269,7 +270,7 @@ p, a, li {
   position: relative;
   max-width: 620px; /* menor para focar em 1 por vez */
   height: 620px;
-  margin-left: 20%;
+  margin-left: 24%;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -292,7 +293,7 @@ p, a, li {
 }
 
 .card img {
-  width: auto;
+  width: 350px;
   height: 350px;
   border-radius: 20px;
   object-fit: cover;
@@ -300,17 +301,19 @@ p, a, li {
 
 .card p {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-top: 12px;
   color: black;
   text-align: center;
-  width: 90%;
+  max-width: 90%;
+  margin-left: 25px;
+  
 }
 
 .prev {
   position: absolute;
-  margin-left: 50px;
+  margin-left: 75px;
   top: 60%;
   transform: translateY(-50%);
   color: black;
@@ -324,7 +327,7 @@ p, a, li {
 }
 
 .next{
-  margin-right: 50px;
+  margin-right: 65px;
   position: absolute;
   top: 60%;
   transform: translateY(-50%);
@@ -367,47 +370,94 @@ p, a, li {
 /* ====== Portfolio ===== */
 .portfolio .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 43.4%));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   align-items: stretch;
 }
 
-/* O CARD já é o container do hover */
+/* CARD container */
 .portfolio .grid .card.img-hover-container {
   position: relative;
   border-radius: 8px;
-  width: 35vw;
-  height: 40vh;          /* mantém altura consistente sem distorcer a imagem */
+  width: 38vw;
+  height: 45vh;
   overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0,0,0,.12);
-  transition: transform .2s ease;
+  box-shadow: 0 8px 22px rgba(0,0,0,.5);
+  transition: transform .10s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
 }
 
 .portfolio .grid .card.img-hover-container:hover {
   transform: translateY(-2px);
 }
+
+.portfolio .grid .card.img-hover-container .hover-img{
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 35.8vw;
+  height: 36.4vh;
+  margin-left: 3%;
+  margin-top: 2.6%;
+}
 .portfolio .grid .card.img-hover-container img {
-  position: absolute;
-  inset: 0;         
   border-radius: 8px;
   width: 100%;
   height: 100%;
-  object-fit: cover;            /* "cover" corta, "contain" encaixa */
-  transition: opacity .35s ease;
+  object-fit: cover;
+  transition: opacity .8s ease;
   will-change: opacity;
 }
 
-/* estado inicial/hover */
-.portfolio .grid .card.img-hover-container .hover-img { opacity: 0; }
+/* Botões duplos */
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.btn-link {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  background: #fcc72a;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-link:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Hover das imagens */
+.portfolio .grid .card.img-hover-container .hover-img { opacity: 0; position: absolute; inset: 0; }
 .portfolio .grid .card.img-hover-container:hover .hover-img { opacity: 1; }
 .portfolio .grid .card.img-hover-container:hover .main-img { opacity: 0; }
 
-/* Responsivo: 2 colunas no tablet, 1 no mobile */
+/* Responsivo */
 @media (max-width: 1024px) {
-  .portfolio .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio .grid .card.img-hover-container {
+    width: 45vw;
+  }
 }
 @media (max-width: 640px) {
-  .portfolio .grid { grid-template-columns: 1fr; }
+  .portfolio .grid .card.img-hover-container {
+    width: 85vw;
+  }
 }
 
 
