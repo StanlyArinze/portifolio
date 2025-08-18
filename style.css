@@ -646,16 +646,16 @@ p, a, li {
     gap: 16px;
   }
   .portfolio .grid .card.img-hover-container {
-    width: 100%;
+    width: 92vw;
     height: 50vh;
     aspect-ratio: 16/10; /* mantém proporção bonita */
   }
   .portfolio .grid .card.img-hover-container img {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 90vw; height: 100%; object-fit: cover;
   }
   .portfolio .grid .card.img-hover-container .hover-img {
-    width: 100%; height: 82%;
-    margin-left: 4%; border-radius: 8px; margin-top: 2%;
+    width: 90vw; height: 82%; object-fit: cover;
+    margin-left: 1vw; border-radius: 8px; margin-top: 2%;
   }
 
   /* Contato */
@@ -676,4 +676,5 @@ p, a, li {
   .btn { font-size: 1rem; padding: 10px 16px; }
   .stats strong { font-size: 1.4rem; }
 }
+
 
